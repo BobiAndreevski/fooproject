@@ -3,12 +3,12 @@ pipeline {
       stages {
        stage('Checkout') {
          steps {
-            git 'https://github.com/USERNAME/REPO.git'
+            git 'https://github.com/BobiAndreevski/fooproject'
                 }
                   }
     stage('Build') {
       steps {
-        sh "mvn compile"
+        bat "mvn compile"
          }
            }
        stage('Test') {
