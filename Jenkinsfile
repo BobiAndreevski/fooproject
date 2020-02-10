@@ -15,6 +15,7 @@ pipeline {
         steps {
           sh "mvn test"
             }
+            // Testar att skicka mail nr 5
               post {
                 always {
                  junit '**/TEST*.xml'
