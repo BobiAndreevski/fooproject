@@ -2,7 +2,7 @@
 Documentation   Labb3
 Library     SeleniumLibrary
 Library     DateTime
-Resource    ../Keywords.robot
+Resource    Keywords.robot
 Test Setup  Begin Web Test
 Test Teardown   End Web Test
 
