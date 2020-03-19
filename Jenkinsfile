@@ -30,7 +30,7 @@ pipeline {
 
 
 
-
+                }
             // Testar att skicka mail nr 8
               post {
                 always {
@@ -42,4 +42,4 @@ pipeline {
                     }
                      }
                       }
-                       
+
