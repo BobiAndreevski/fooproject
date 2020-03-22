@@ -16,13 +16,7 @@ pipeline {
           sh "mvn test"
               }
        }
-         stage('JacocoBuild') {
-            steps {
-              sh './jenkins_build.sh'
-                junit '*/build/test-results/*.xml'
-                   step( [ $class: 'JacocoPublisher' ] )
-                   }
-                        }
+         
                stage('newman') {
                         steps {
                             sh 'newman run Restful_Booker.postman_collection.json --environment Restful_Booker.postman_environment.json --reporters junit'
