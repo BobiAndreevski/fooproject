@@ -16,7 +16,7 @@ pipeline {
           sh "mvn test"
               }
        }
-         stage('Build') {
+         stage('JacocoBuild') {
             steps {
               sh './jenkins_build.sh'
                 junit '*/build/test-results/*.xml'
