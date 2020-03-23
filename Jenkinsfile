@@ -15,6 +15,7 @@ pipeline {
         steps {
           sh "mvn test"
               }
+               chuckNorris()
        }
          
                stage('newman') {
@@ -26,6 +27,7 @@ pipeline {
                                     junit '**/*xml'
                                 }
                             }
+                             chuckNorris()
                     }
 stage('robot') {
             steps {
