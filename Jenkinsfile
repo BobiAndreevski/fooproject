@@ -51,7 +51,7 @@ stage('robot') {
                 }
             }
         }
-
+             chuckNorris()
 
 
                 }
@@ -63,7 +63,7 @@ stage('robot') {
                   recipientProviders: [culprits()], subject:
                    '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!'
                    }
-                    chuckNorris()
+
                     }
 
                      }
