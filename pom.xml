@@ -44,6 +44,10 @@
         </plugins>
             </build>
 
+    <properties>
+        <sonar.coverage.jacoco.xmlReportPaths>../app-it/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+    </properties>
+    
      <dependencies>
     <dependency>
         <groupId>org.junit.jupiter</groupId>
