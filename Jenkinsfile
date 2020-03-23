@@ -63,6 +63,7 @@ stage('robot') {
                    '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!'
                    }
                     }
+                     chuckNorris()
                      }
 
 
