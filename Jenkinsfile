@@ -14,8 +14,8 @@ pipeline {
        stage('Test') {
         steps {
           sh "mvn test"
+           chuckNorris()
               }
-               chuckNorris()
        }
          
                stage('newman') {
@@ -25,9 +25,9 @@ pipeline {
                         post {
                             always {
                                     junit '**/*xml'
+                                     chuckNorris()
                                 }
                             }
-                             chuckNorris()
                     }
 stage('robot') {
             steps {
