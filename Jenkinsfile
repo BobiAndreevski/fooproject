@@ -16,6 +16,7 @@ pipeline {
           sh "mvn test"
               }
        }
+         
                stage('newman') {
                         steps {
                             sh 'newman run Restful_Booker.postman_collection.json --environment Restful_Booker.postman_environment.json --reporters junit'
