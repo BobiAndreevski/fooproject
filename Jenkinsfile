@@ -47,11 +47,12 @@ stage('robot') {
                                   otherFiles          : "**/*.png,**/*.jpg",
                                 ]
                            )
+                            chuckNorris()
                     }
                 }
             }
         }
-             chuckNorris()
+
 
 
                 }
