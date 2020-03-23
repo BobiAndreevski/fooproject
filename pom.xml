@@ -22,9 +22,9 @@
                 <version>2.22.2</version>
             </plugin>
 
-                <id>coverage</id>
+            
 
-                
+
                         <plugin>
                             <groupId>org.jacoco</groupId>
                             <artifactId>jacoco-maven-plugin</artifactId>
