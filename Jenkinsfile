@@ -17,8 +17,17 @@ pipeline {
            chuckNorris()
               }
        }
+       jacoco(
+           execPattern: '/target/code-coverage/.exec',
+           classPattern: '/target/classes',
+           sourcePattern: '/src',
+           inclusionPattern: 'com/company/**',
+           changeBuildStatus: true,
+           minimumInstructionCoverage: '70',
+           maximumInstructionCoverage: '80'
        stage('Jacoco') {
             steps {
+               sh './jenkins_build.sh'
                junit '*/build/test-results/*.xml'
               step([$class: 'JacocoPublisher',
                     execPattern: 'target/*.exec',
