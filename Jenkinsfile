@@ -61,8 +61,8 @@ stage('robot') {
         }
 
 
-            }
 
+                }
             // Testar att skicka mail nr 8
               post {
                 always {
@@ -71,14 +71,15 @@ stage('robot') {
                               $class         : 'FindBugsPublisher',
                               pattern        : 'build/reports/findbugs/*.xml',
                               canRunOnFailed : true
-                               ])
+                                        ])
                                         step([
                                             $class           : 'JacocoPublisher',
                                             execPattern      : 'build/jacoco/jacoco.exec',
                                             classPattern     : 'build/classes/main',
                                             sourcePattern    : 'src/main/java',
                                             exclusionPattern : '**/*Test.class'
-                                             ])
+                                        ])
+
                    }
 
                     }
