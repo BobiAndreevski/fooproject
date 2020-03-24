@@ -14,7 +14,15 @@ pipeline {
        stage('Test') {
         steps {
           sh"mvn -B test"
-                           $class           : 'JacocoPublisher',
+          post {
+                  always {
+                    junit "**/build/test-results/*.xml"
+                    step([
+                        $class         : 'FindBugsPublisher',
+                        pattern        : 'build/reports/findbugs/*.xml',
+                        canRunOnFailed : true
+                        step([
+                            $class           : 'JacocoPublisher',
                             execPattern      : 'build/jacoco/jacoco.exec',
                             classPattern     : 'build/classes/main',
                             sourcePattern    : 'src/main/java',
