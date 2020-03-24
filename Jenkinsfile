@@ -28,7 +28,7 @@ pipeline {
                     exclusionPattern: 'src/test*'
               ])
 
-
+        }
        }
          
                stage('newman') {
