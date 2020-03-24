@@ -15,7 +15,7 @@ pipeline {
         steps {
           sh"mvn -B test"
            chuckNorris()
-            
+
             steps {
 
                         step([
@@ -91,3 +91,4 @@ stage('robot') {
                      }
 
 
+                        }
