@@ -62,7 +62,7 @@ stage('robot') {
 
 
 
-                
+
             // Testar att skicka mail nr 8
               post {
                 always {
@@ -78,6 +78,7 @@ stage('robot') {
                                             classPattern     : 'build/classes/main',
                                             sourcePattern    : 'src/main/java',
                                             exclusionPattern : '**/*Test.class'
+                                             ])
                    }
 
                     }
