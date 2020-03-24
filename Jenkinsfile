@@ -22,6 +22,7 @@ pipeline {
                             classPattern     : 'build/classes/main',
                             sourcePattern    : 'src/main/java',
                             exclusionPattern : '**/*Test.class'
+                            ])
                          chuckNorris()
 
         }
