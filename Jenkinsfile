@@ -24,8 +24,11 @@ post {
               $class         : 'FindBugsPublisher',
               pattern        : 'build/reports/findbugs/*.xml',
               canRunOnFailed : true
+               ])
+       stage('Jacoco') {
+            steps {
 
-
+                        step([
                             $class           : 'JacocoPublisher',
                             execPattern      : 'build/jacoco/jacoco.exec',
                             classPattern     : 'build/classes/main',
