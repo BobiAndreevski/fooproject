@@ -61,7 +61,7 @@ stage('robot') {
         }
 
 
-
+            }
 
             // Testar att skicka mail nr 8
               post {
