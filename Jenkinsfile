@@ -36,7 +36,8 @@ pipeline {
                         }
                         post {
                             always {
-                                    junit '**/*xml'
+                                    junit 'target**/*xml'
+                                     jacoco(execPattern: 'target/jacoco.exec')
                                      chuckNorris()
                                 }
                             }
