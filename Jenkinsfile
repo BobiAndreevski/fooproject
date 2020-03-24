@@ -17,17 +17,7 @@ pipeline {
            chuckNorris()
               }
        }
-       jacoco(
-           execPattern: '/target/code-coverage/.exec',
-           classPattern: '/target/classes',
-           sourcePattern: '/src',
-           inclusionPattern: 'com/company/**',
-           changeBuildStatus: true,
-           minimumInstructionCoverage: '70',
-           maximumInstructionCoverage: '80'
 
-        
-       }
          
                stage('newman') {
                         steps {
@@ -71,11 +61,16 @@ stage('robot') {
                 }
             // Testar att skicka mail nr 8
               post {
-                always {
-                 junit '**/TEST*.xml'
-                 emailext attachLog: true, attachmentsPattern: '**/TEST*xml', body: '',
-                  recipientProviders: [culprits()], subject:
-                   '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!'
+                              always {
+                               junit '/TEST*.xml'
+
+              step([$class: 'JacocoPublisher', changeBuildStatus: false, exclusionPattern:
+              '/xxx/yyy/zzz//*.class, /Test.class', inclusionPattern: '/*.class',
+              minimumBranchCoverage: '80', sourcePattern: '/src'])
+
+                                  }
+
+                                   }
                    }
 
                     }
