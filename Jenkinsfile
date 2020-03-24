@@ -15,10 +15,7 @@ pipeline {
         steps {
           sh"mvn -B test"
            chuckNorris()
-              }
-       }
-
-       stage('Jacoco') {
+            
             steps {
 
                         step([
