@@ -25,8 +25,8 @@ pipeline {
            changeBuildStatus: true,
            minimumInstructionCoverage: '70',
            maximumInstructionCoverage: '80'
-       
-        }
+
+        
        }
          
                stage('newman') {
