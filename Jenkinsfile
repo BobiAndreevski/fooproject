@@ -27,7 +27,7 @@ pipeline {
                      classPattern: 'target/classes',
                      sourcePattern: 'src/main/java',
                      exclusionPattern: 'src/test*'
-            }
+            
        }
          
                stage('newman') {
