@@ -25,7 +25,7 @@ pipeline {
                    post {
                        success {
                            junit '**/*.xml'
-                           jacoco(execPattern: 'target/jacoco.exec')
+                           jacoco(execPattern: 'jacoco.exec')
                        }
                    }
                }
