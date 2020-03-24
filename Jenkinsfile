@@ -14,10 +14,7 @@ pipeline {
        stage('Test') {
         steps {
           sh"mvn -B test"
-
-
-                        step([
-                            $class           : 'JacocoPublisher',
+                           $class           : 'JacocoPublisher',
                             execPattern      : 'build/jacoco/jacoco.exec',
                             classPattern     : 'build/classes/main',
                             sourcePattern    : 'src/main/java',
