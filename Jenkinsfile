@@ -17,8 +17,17 @@ pipeline {
            chuckNorris()
               }
        }
-
-
+      
+       stage('Jacoco') {
+            steps {
+               sh './jenkins_build.sh'
+               junit '*/build/test-results/*.xml'
+              step([$class: 'JacocoPublisher',
+                    execPattern: 'target/*.exec',
+                    classPattern: 'target/classes',
+                    sourcePattern: 'src/main/java',
+                    exclusionPattern: 'src/test*'
+              ])
 
         }
        }
@@ -62,24 +71,14 @@ stage('robot') {
 
 
 
-                
+                }
             // Testar att skicka mail nr 8
               post {
                 always {
-                   junit "**/build/test-results/*.xml"
-                          step([
-                              $class         : 'FindBugsPublisher',
-                              pattern        : 'build/reports/findbugs/*.xml',
-                              canRunOnFailed : true
-                                        ])
-                                        step([
-                                            $class           : 'JacocoPublisher',
-                                            execPattern      : 'build/jacoco/jacoco.exec',
-                                            classPattern     : 'build/classes/main',
-                                            sourcePattern    : 'src/main/java',
-                                            exclusionPattern : '**/*Test.class'
-                                        ])
-
+                 junit '**/TEST*.xml'
+                 emailext attachLog: true, attachmentsPattern: '**/TEST*xml', body: '',
+                  recipientProviders: [culprits()], subject:
+                   '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!'
                    }
 
                     }
