@@ -18,14 +18,8 @@ pipeline {
               }
        }
 
-       stage('Jacoco') {
-            steps {
 
 
-
-        }
-       }
-         
                stage('newman') {
                         steps {
                             sh 'newman run Restful_Booker.postman_collection.json --environment Restful_Booker.postman_environment.json --reporters junit'
@@ -33,13 +27,15 @@ pipeline {
                         post {
                             always {
                                     junit '**/*xml'
-                                      step([
+                                       step([
                                                                                $class           : 'JacocoPublisher',
                                                                                execPattern      : 'build/jacoco/jacoco.exec',
                                                                                classPattern     : 'build/classes/main',
                                                                                sourcePattern    : 'src/main/java',
                                                                                exclusionPattern : '**/*Test.class'
                                                                            ])
+
+
                                      chuckNorris()
                                 }
                             }
