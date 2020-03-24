@@ -18,17 +18,7 @@ pipeline {
               }
        }
 
-       stage ('Functional tests') {
-                   steps {
-                       sh "mvn verify"
-                   }
-                   post {
-                       success {
-                           junit 'target/**/*.xml'
-                           jacoco(execPattern: 'target/jacoco.exec')
-                       }
-                   }
-               }
+     
 
                stage('newman') {
                         steps {
