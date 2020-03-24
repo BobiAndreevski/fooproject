@@ -18,7 +18,17 @@ pipeline {
               }
        }
 
-     
+       stage ('Functional tests') {
+                   steps {
+                       sh "mvn verify -Pstaging -Dtomcat.host=${TOMCAT_HOST}"
+                   }
+                   post {
+                       success {
+                           junit 'target/**/*.xml'
+                           jacoco(execPattern: 'target/jacoco.exec')
+                       }
+                   }
+               }
 
                stage('newman') {
                         steps {
@@ -26,8 +36,9 @@ pipeline {
                         }
                         post {
                             always {
-                                    junit 'target**/*xml'
-                                     jacoco(execPattern: 'target/jacoco.exec')
+                                    junit '**/*xml'
+                                                        jacoco(execPattern: 'target/jacoco.exec')
+
                                      chuckNorris()
                                 }
                             }
