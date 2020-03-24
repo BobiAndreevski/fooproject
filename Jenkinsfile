@@ -21,13 +21,7 @@ pipeline {
        stage('Jacoco') {
             steps {
 
-                        step([
-                            $class           : 'JacocoPublisher',
-                            execPattern      : 'build/jacoco/jacoco.exec',
-                            classPattern     : 'build/classes/main',
-                            sourcePattern    : 'src/main/java',
-                            exclusionPattern : '**/*Test.class'
-                        ])
+
 
         }
        }
@@ -39,6 +33,13 @@ pipeline {
                         post {
                             always {
                                     junit '**/*xml'
+                                      step([
+                                                                               $class           : 'JacocoPublisher',
+                                                                               execPattern      : 'build/jacoco/jacoco.exec',
+                                                                               classPattern     : 'build/classes/main',
+                                                                               sourcePattern    : 'src/main/java',
+                                                                               exclusionPattern : '**/*Test.class'
+                                                                           ])
                                      chuckNorris()
                                 }
                             }
