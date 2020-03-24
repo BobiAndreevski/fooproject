@@ -67,7 +67,7 @@ stage('robot') {
               step([$class: 'JacocoPublisher', changeBuildStatus: false, exclusionPattern:
               '/xxx/yyy/zzz//*.class, /Test.class', inclusionPattern: '/*.class',
               minimumBranchCoverage: '80', sourcePattern: '/src'])
-              sh "./gradlew jacocoTestReport" publishHTML(target: [reportDir:'build/jacocoHtml', reportFiles: 'index.html', reportName: 'Code Coverage'])
+              
 
                                   }
 
