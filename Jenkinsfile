@@ -17,14 +17,7 @@ pipeline {
            chuckNorris()
               }
        }
-post {
-        always {
-          junit "**/build/test-results/*.xml"
-          step([
-              $class         : 'FindBugsPublisher',
-              pattern        : 'build/reports/findbugs/*.xml',
-              canRunOnFailed : true
-               ])
+
        stage('Jacoco') {
             steps {
 
@@ -93,4 +86,3 @@ stage('robot') {
                      }
 
 
-}
