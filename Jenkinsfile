@@ -21,12 +21,12 @@ pipeline {
             steps {
                sh './jenkins_build.sh'
                junit '*/build/test-results/*.xml'
-               step( [ $class: 'JacocoPublisher'
-               execPattern: 'target/*.exec',
-               classPattern: 'target/classes',
-               sourcePattern: 'src/main/java',
-               exclusionPattern: 'src/test*' ] )
-
+              step([$class: 'JacocoPublisher',
+                    execPattern: 'target/*.exec',
+                    classPattern: 'target/classes',
+                    sourcePattern: 'src/main/java',
+                    exclusionPattern: 'src/test*'
+              ])
 
 
        }
