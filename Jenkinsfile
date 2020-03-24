@@ -20,12 +20,12 @@ pipeline {
 
        stage ('Functional tests') {
                    steps {
-                       sh  'newman run Restful_Booker.postman_collection.json --environment Restful_Booker.postman_environment.json --reporters junit'
-                                                  }
+                       sh "mvn clean verify -P all-tests"
+                   }
                    post {
                        success {
-                           junit '**/*.xml'
-                           jacoco(execPattern: 'jacoco.exec')
+                           junit 'target/**/*.xml'
+                           jacoco(execPattern: 'target/jacoco.exec')
                        }
                    }
                }
