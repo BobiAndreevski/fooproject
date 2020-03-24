@@ -24,7 +24,7 @@ post {
               $class         : 'FindBugsPublisher',
               pattern        : 'build/reports/findbugs/*.xml',
               canRunOnFailed : true
-       stage('Jacoco') {
+
             steps {
 
                         step([
