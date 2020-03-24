@@ -20,7 +20,7 @@ pipeline {
 
        stage ('Functional tests') {
                    steps {
-                       sh "mvn verify -Pstaging -Dtomcat.host=${TOMCAT_HOST}"
+                       sh "mvn clean test"
                    }
                    post {
                        success {
@@ -37,7 +37,6 @@ pipeline {
                         post {
                             always {
                                     junit '**/*xml'
-                                                        jacoco(execPattern: 'target/jacoco.exec')
 
                                      chuckNorris()
                                 }
