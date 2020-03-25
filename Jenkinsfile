@@ -19,10 +19,16 @@ pipeline {
               }
        }
        stage('cobertura') {
-                            steps {
-                               sh "mvn cobertura:cobertura"
-                   }
-               }
+                             steps {
+                                sh "mvn cobertura:cobertura"
+                             }
+                                post {
+                                  always {
+                                      junit '**/TEST*.xml'
+                                     }
+                                  }
+
+       }
 
                stage('newman') {
                         steps {
