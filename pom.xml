@@ -30,14 +30,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.7</version>
-                <configuration>
-                    <instrumentation>
-                        <excludes>
-                            <exclude>*.json</exclude>
-                            <exclude>*.robot</exclude>
-                        </excludes>
-                    </instrumentation>
-                </configuration>
+                
                 <executions>
                     <execution>
                         <phase>package</phase>
