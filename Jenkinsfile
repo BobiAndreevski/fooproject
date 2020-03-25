@@ -26,12 +26,7 @@ pipeline {
        stage ('Functional tests') {
                    steps {
                        sh "mvn clean verify -P all-tests"
-                   }
-                   post {
-                       success {
-                           junit 'target/**/*.xml'
-                           jacoco(execPattern: 'target/jacoco.exec')
-                       }
+                  
                    }
                }
 
