@@ -20,6 +20,7 @@ pipeline {
        }
        stage('cobertura') {
                              steps {
+                             sh "mvn clean install"
                                 sh "mvn cobertura:cobertura"
                              }
                                 post {
