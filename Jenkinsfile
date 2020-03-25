@@ -83,7 +83,8 @@ stage('robot') {
                         failUnstable: false,
                         maxNumberOfBuilds: 0,
                         onlyStable: false, sourceEncoding: 'ASCII',
-                        zoomCoverageChart: false])
+                        zoomCoverageChart: false
+                        ])
 
 
 
@@ -94,7 +95,7 @@ stage('robot') {
         }
 
 
-                }
+                
             // Testar att skicka mail nr 8
               post {
                 always {
@@ -108,6 +109,6 @@ stage('robot') {
 
                      }
 
-                       }
+
 
 
