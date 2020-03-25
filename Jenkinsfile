@@ -18,15 +18,9 @@ pipeline {
               }
        }
        stage('cobertura') {
-
                             steps {
-
                                sh "mvn cobertura:cobertura"
 
-       stage ('Functional tests') {
-                   steps {
-                       sh "mvn clean verify -P all-tests"
-                  
                    }
                }
 
@@ -37,7 +31,6 @@ pipeline {
                         post {
                             always {
                                     junit '**/*xml'
-
                                      chuckNorris()
                                 }
                             }
