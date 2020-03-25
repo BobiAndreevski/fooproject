@@ -6,6 +6,7 @@ pipeline {
             git 'https://github.com/BobiAndreevski/fooproject'
                 }
                   }
+
     stage('Build') {
       steps {
         sh "mvn -B compile"
@@ -20,7 +21,6 @@ pipeline {
        stage('cobertura') {
                             steps {
                                sh "mvn cobertura:cobertura"
-
                    }
                }
 
@@ -80,7 +80,7 @@ stage('robot') {
 
             }
 
-        
+
 
 
 
@@ -96,6 +96,8 @@ stage('robot') {
                     }
 
                      }
+
+                      }
 
 
 
