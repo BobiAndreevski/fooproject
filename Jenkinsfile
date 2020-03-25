@@ -61,7 +61,7 @@ stage('robot') {
                 }
             }
         }
-
+    }
         post {
                 always {
                         junit '**/*xml'
@@ -97,7 +97,7 @@ stage('robot') {
 
                      }
 
-                      
+
 
 
 
