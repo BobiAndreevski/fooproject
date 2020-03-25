@@ -17,6 +17,11 @@ pipeline {
            chuckNorris()
               }
        }
+       stage('cobertura') {
+
+                            steps {
+
+                               sh "mvn cobertura:cobertura"
 
        stage ('Functional tests') {
                    steps {
@@ -67,7 +72,26 @@ stage('robot') {
                 }
             }
         }
+        post {
+                always {
+                        junit '**/*xml'
+                        step([$class: 'CoberturaPublisher',
+                        autoUpdateHealth: false,
+                        autoUpdateStability: false,
+                        coberturaReportFile: '**/coverage.xml',
+                        failUnhealthy: false,
+                        failUnstable: false,
+                        maxNumberOfBuilds: 0,
+                        onlyStable: false, sourceEncoding: 'ASCII',
+                        zoomCoverageChart: false])
 
+
+
+                }
+
+            }
+
+        }
 
 
                 }
