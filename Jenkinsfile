@@ -72,6 +72,7 @@ stage('robot') {
                 }
             }
         }
+     }
         post {
                 always {
                         junit '**/*xml'
@@ -85,9 +86,7 @@ stage('robot') {
                         onlyStable: false, sourceEncoding: 'ASCII',
                         zoomCoverageChart: false
                         ])
-
-
-
+                        chuckNorris()
                 }
 
             }
@@ -109,9 +108,9 @@ stage('robot') {
 
                      }
 
-                       }
 
-                         }
+
+
 
 
 
